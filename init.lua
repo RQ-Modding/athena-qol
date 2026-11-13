@@ -101,12 +101,11 @@ local MAXIMUM = rq.skill.define({
   flavor = "",
   desc = "Athena at her very best, while she holds a bow.$$"
     .. "Target:\tSelf$"
-    .. "Effect:\tDamage limit +100%$"
-    .. "\t(adds to Damage Maximum)$"
+    .. "Effect:\tDamage limit +" .. MAXIMUM_LIMIT .. "%$"
     .. "\tCalculated Shot takes the element$"
     .. "\tof a known weakness$"
-    .. "\tHP +10% at each of her turns$"
-    .. "\tAccuracy +40$"
+    .. "\tHeals " .. MAXIMUM_HEAL .. "% HP each turn$"
+    .. "\tAccuracy +" .. MAXIMUM_ACCURACY .. "$"
     .. "Unequipped:\tNo effect",
 })
 rq.skill.patch(MAXIMUM, { type = 20, panel = 102, action = 0, target = 0 })
@@ -171,6 +170,28 @@ rq.battle.on_study(function(ctx)
   if g then return g[world()] end
   return nil
 end)
+
+-- Their hover texts say the world's gain: the game's sentence ("will increase by 3 after each")
+-- with the number replaced. rq.skill.on_describe runs each time a text is shown, so a load or a
+-- world transfer needs nothing more.
+local STUDY_STAT = {
+  [ids.skill.ATTACK_STUDIES] = "attack",     -- 336
+  [ids.skill.ACCURACY_STUDIES] = "accuracy", -- 337
+  [ids.skill.SPEED_STUDIES] = "speed",       -- 338
+  [ids.skill.HP_STUDIES] = "hp",             -- 339
+  [ids.skill.CRITICAL_STUDIES] = "critical", -- 340
+}
+
+local function study_text(no, text)
+  local stat = STUDY_STAT[no]
+  if not stat or type(text) ~= "string" then return nil end
+  local out, n = text:gsub("will increase by %d+ after each",
+    "will increase by " .. GAINS[stat][world()] .. " after each", 1)
+  if n == 0 then return nil end
+  return out
+end
+
+rq.skill.on_describe(study_text)
 
 -- Stored points ----------------------------------------------------------------
 
@@ -275,6 +296,7 @@ return {
   SMARTER_AIM = SMARTER_AIM,
   MAXIMUM = MAXIMUM,
   GAINS = GAINS,
+  study_text = study_text,
   sync = sync,
   owed = owed,
   give_points = give_points,

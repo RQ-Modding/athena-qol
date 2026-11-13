@@ -23,6 +23,7 @@ For Athena 2.0 only:
   | Critical | +5 | +10 | +20 | +1 |
 
   The gain is not cut at the ally's stat. Accuracy still stops at 200, speed and critical at 100.
+  The Studies' descriptions say the gain of the world being played.
 - **A stored skill point at world 2, and one more at world 3**, given once each: on reaching the
   world with her in the roster, or when she joins later. Morurun's reset and Skill Again keep them.
 - **Smarter Aim** (from world 2, 1 point): *"Upgrades Athena Ranged Attacks. She will still be
@@ -34,8 +35,12 @@ For Athena 2.0 only:
   - her damage limits +100%, added to Damage Maximum's (with Damage Maximum ★★★, +200%);
   - Calculated Shot takes the element of the target's weakness when the weakness is known and no
     guard took the hit (as Aegis's arrows do), so it hits for the weakness bonus;
-  - 10% of her most HP back at each of her turns;
+  - heals 10% of her most HP at each of her turns;
   - +40 to her hit chance.
+
+Her Marble (ITEM) and Broken Clock (SPECIAL) cannot be removed, as in the game. In world 3 the
+game itself takes that mark off every item when the world begins, so there they can come off; the
+mod leaves that as it is.
 
 ## Keys and settings
 
@@ -57,7 +62,8 @@ release zip into the game's `mods` folder, so that you have `mods/athena-qol/mod
 
 - Slots: `rq.chara.edit(27, { learn = { { id = 568, n = 3 } } })`.
 - Bows: `rq.item.on_can_equip`, when the item's level is the game's only reason.
-- Studies: `rq.battle.on_study` returns the world's gain.
+- Studies: `rq.battle.on_study` returns the world's gain, and `rq.skill.on_describe` puts it in
+  their descriptions.
 - Stored points: `rq.chara.add_skill_points` from `rq.saves.on_load`, `rq.world.on_transfer_after`
   and `rq.chara.on_create`; `rq.chara.on_skill_reset` gives them back after a reset.
 - Smarter Aim: `rq.skill.define`, `rq.chara.on_offer`, and the rows swapped with

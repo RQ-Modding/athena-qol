@@ -3,6 +3,12 @@
 Each section is a version of the mod, the `version` in `mod.json`. The release workflow copies the
 section of a tagged version into the release notes.
 
+## 1.0.1
+
+- The Studies' descriptions say the world's gain (Attack Studies: "Athena's attack will increase
+  by 100 after each battle" in world 1, 500 in world 2, 2000 in world 3), not the game's +3.
+- Athena Maximum's description: "Heals 10% HP each turn", and no mention of Damage Maximum.
+
 ## 1.0.0
 
 First version, for Athena 2.0.
