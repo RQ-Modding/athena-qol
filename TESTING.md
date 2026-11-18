@@ -43,9 +43,9 @@ Assume nothing about the mod when it is not installed: check `logs\rqmod.log` fo
 `give_points()` and `has_maximum(iic)`.
 Work on a copy of the save.
 
-## Test Lab
+## Tested in the game
 
-`athena-qol` (with this mod installed): the slots, a bow above her level, the Studies' gains and
+The Test Lab's scenario `athena-qol` (with this mod installed): the slots, a bow above her level, the Studies' gains and
 their descriptions in each world, Athena Maximum's description, her Marble and Broken Clock
 marked "cannot be removed", the stored points, Smarter Aim's swap and Athena Maximum's limit,
 element, heal and accuracy.
