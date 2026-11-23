@@ -48,4 +48,6 @@ Work on a copy of the save.
 The Test Lab's scenario `athena-qol` (with this mod installed): the slots, a bow above her level, the Studies' gains and
 their descriptions in each world, Athena Maximum's description, her Marble and Broken Clock
 marked "cannot be removed", the stored points, Smarter Aim's swap and Athena Maximum's limit,
-element, heal and accuracy.
+element, heal and accuracy; with Loadouts 1.4.0 installed, a loadout with Smarter Aim and Calculated
+Shot 1 saved, her skills reset, and the loadout loaded again (Smarter Aim bought, Calculated Shot 1
+on Ranged Attack 1's row at the uses saved).

@@ -73,6 +73,9 @@ for n, d in ipairs(SHOT_DATA) do
     basic = 1,
   })
   rq.skill.sort_as(no, RANGED[n])
+  -- A form of Ranged Attack n: the row keeps its uses, its purchase record and its hotbar place
+  -- through the swap, and a planner (Loadouts) follows it.
+  rq.skill.form_of(no, RANGED[n])
   SHOT[n] = no
   TO_SHOT[RANGED[n]] = no
   TO_RANGED[no] = RANGED[n]

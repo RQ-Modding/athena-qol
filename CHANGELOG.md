@@ -3,6 +3,12 @@
 Each section is a version of the mod, the `version` in `mod.json`. The release workflow copies the
 section of a tagged version into the release notes.
 
+## 1.1.0
+
+- Calculated Shot N is a form of Ranged Attack N (`rq.skill.form_of`): a planner such as Loadouts
+  follows the row Smarter Aim swaps, so a loadout with Calculated Shot loads again after a reset of
+  her skills. Needs loader 2.66.0.
+
 ## 1.0.1
 
 - The Studies' descriptions say the world's gain (Attack Studies: "Athena's attack will increase
